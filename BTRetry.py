@@ -17,54 +17,45 @@ ingredients = {
     "fruity": ["a slice of orange", "a dash of cassis", "a cherry on top"]
 }
 
+like = {'strong': False, 'weak': False, 'salty': False, 'bitter': False, 'sweet': False, 'fruity': False}
+
 def ask():
-    like_strong = False
-    like_salty = False
-    like_bitter = False
-    like_sweet = False
-    like_fruity = False
-    
-    print"Arrrr! I be yer personal pirate bartender.  Ye have ta pick yer poison.  Answer yes or no to these questions"
-    
-    strong_input = raw_input(questions['strong'])
-    strong_input
-    if strong_input == "yes":
-        like_strong = True
-    salty_input = raw_input(questions['salty'])
-    salty_input
-    if salty_input == "yes":
-        like_salty = True
-    bitter_input = raw_input(questions['bitter'])
-    bitter_input
-    if bitter_input == "yes":
-        like_bitter = True
-    sweet_input = raw_input(questions['sweet'])
-    sweet_input
-    if sweet_input == "yes":
-        like_sweet = True
-    fruity_input = raw_input(questions['fruity'])
-    fruity_input
-    if fruity_input == "yes":
-        like_fruity = True
-        
-    mix_li = [] 
-    
-    if like_strong == True:
+    print "I be a pirate what can make a smashin drink.  Just lem'me know what ye be likin'.  I'm as daft me peg leg, so please keep yer answers simple... like 'yes' or 'no'"
+    raw_input(questions['strong'])
+    if raw_input == "yes":
+        like['strong'] = True
+    elif raw_input == "no":
+        like['weak'] = True
+    raw_input(questions['salty'])
+    if raw_input == "yes":
+        like['salty'] = True
+    raw_input(questions['bitter'])
+    if raw_input == "yes":
+        like['bitter'] = True
+    raw_input(questions['sweet'])
+    if raw_input == "yes":
+        like['sweet'] = True
+    raw_input(questions['fruity'])
+    if raw_input == "yes":
+        like['fruity'] = True
+ 
+def answer():
+    mix_li = []
+    if like['strong'] == True:
         mix_li.append(random.choice(ingredients['strong']))
-    if like_strong == False:
+    if like['strong'] == False:
         mix_li.append(random.choice(ingredients['weak']))
-    if like_salty == True:
+    if like['salty'] == True:
         mix_li.append(random.choice(ingredients['salty']))
-    if like_bitter == True:
+    if like['bitter'] == True:
         mix_li.append(random.choice(ingredients['bitter']))
-    if like_sweet == True:
+    if like['sweet'] == True:
         mix_li.append(random.choice(ingredients['sweet']))
-    if like_fruity == True:
+    if like['fruity'] == True:
         mix_li.append(random.choice(ingredients['fruity']))
-    print "You'll love this, it has"
+        
+    print "yer gonna love this, it has"
     print(", ".join(mix_li))
-
-# ask()
-
-if __name__ == '__main__':
-    ask()
+    
+ask()
+answer()
